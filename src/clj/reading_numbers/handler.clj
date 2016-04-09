@@ -12,6 +12,10 @@
        [:b "lein figwheel"]
        " in order to start the compiler"]])
 
+(def waiting
+  [:div#app
+   [:p "loading app..."]])
+
 (def loading-page
   (html5
    [:head
@@ -20,7 +24,7 @@
              :content "width=device-width, initial-scale=1"}]
      (include-css (if (env :dev) "/css/site.css" "/css/site.min.css"))]
     [:body
-     mount-target
+     waiting
      (include-js "/js/app.js")]))
 
 
